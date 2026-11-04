@@ -1,0 +1,4 @@
+- ResNet과 잔차 학습: 층이 깊어질수록 최적화가 어려워져 학습 오차 자체가 커지는 Degradation Problem을 해결하기 위해, 입력 x를 출력단에 바로 더해주는 Skip Connection을 통해 목표 함수 대신 잔차 F(x) = H(x) - x를 학습하는 ResNet의 원리를 이해했습니다.
+- 전이학습과 파인튜닝: 대규모 데이터로 사전 학습된 모델의 특징 추출 능력을 재사용하는 전이학습의 개념을 익히고, 모델을 블록 단위로 분해해 새로운 Task에 맞게 재구성하는 Fine Tuning, 데이터 분포를 넓히는 Data Augmentation, 교사 모델의 지식을 전달하는 Distillation의 차이를 정리했습니다.
+- Basic Block과 Bottleneck Block 구현 및 비교: Keras의 Functional API와 Add 레이어를 사용해 두 종류의 Residual Block을 직접 구현하고, 1x1 합성곱으로 채널 수를 축소했다가 복원하는 Bottleneck 구조가 파라미터 수와 MAC 연산량을 대폭 줄여주는 효과를 확인했습니다.
+- 흑백 이미지 분류를 위한 Input Adapter와 새 Head 연결: 기존 Encoder의 가중치와 Batch Normalization 통계량을 동결한 상태에서, 1채널 흑백 입력을 3채널로 맞춰주는 1x1 Conv2D 기반의 Input Adapter와 개/고양이 이진 분류용 새 Dense Head를 앞뒤로 결합해 적은 파라미터만으로도 빠르게 수렴하는 전이학습 파이프라인을 구축했습니다.
